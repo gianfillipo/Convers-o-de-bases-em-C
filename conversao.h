@@ -188,17 +188,32 @@ int converterOctalDecimal(int num)
 int converterDecimalBinario(int num)
 {
 
-    int resto, contador;
+    int contador, tamanhoDoVetor, numTamanho;
+
+    numTamanho = num;
+
+    tamanhoDoVetor = 0;
+    while (numTamanho >= 1)
+    {
+        tamanhoDoVetor++;
+        numTamanho /= 2;
+    }  
+
+    int vetor[tamanhoDoVetor];
 
     contador = 0;
-    resto = 0;
     while (num >= 1)
     {
-        contador++;
-        resto += num % 2 * (potencia(10, contador) / 10);
+        
+        vetor[contador] = num % 2; 
         num /= 2;
+        contador++;
     }
-    printf("%i\n", resto);
+
+    for(;tamanhoDoVetor-1 >= 0; tamanhoDoVetor--){
+        printf("%i", vetor[tamanhoDoVetor-1]);
+    }    
+    printf("\n");
 }
 
 // Decimal para hexadecimal

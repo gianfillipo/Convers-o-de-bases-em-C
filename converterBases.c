@@ -14,8 +14,13 @@ int main()
     printf("\nPara base: ");
     scanf("%i", &base2);
 
+    if(base1 == 16){ // Caso a primeira base seja 16, o programa escaneia como um número hexadecimal.
+        scanf("%x", &num);
+    }else{
+
     printf("\nDigite o número que deseja converter: ");
     scanf("%i", &num);
+    }
 
     switch (base1)
     {
@@ -92,7 +97,24 @@ int main()
     break;
 
     case 16:
-        printf("Ainda estou trabalhando nisso.\n\n");
+        switch(base2){
+            case 2:
+            printf("Resultado: ");
+            converterDecimalBinario(num);
+            break;
+
+            case 8:
+            printf("Resultado: %o", num);
+            break;
+
+            case 10:
+            printf("Resultado: %d", num);
+            break;
+        
+            default: 
+                printf("Segunda base inválida\n");
+                break;
+        }
     break;
 
     
